@@ -1,0 +1,195 @@
+\documentclass[conference]{IEEEtran}
+
+% -------------------------------------------------------
+% Paquetes
+% -------------------------------------------------------
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{url}
+\usepackage{fancyhdr}
+
+% Nota: Asegúrese de tener el archivo 'uts_logonegro.png' en la carpeta
+% de compilación (o ajuste la ruta relativa, ej. ../assets/uts_logonegro.png).
+
+% -------------------------------------------------------
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\includegraphics[height=1.2cm]{uts_logonegro.png}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.0pt}
+\setlength{\headheight}{1.5cm}
+
+% -------------------------------------------------------
+% CABECERA
+% -------------------------------------------------------
+\title{Informe de Avance de Proyecto | Centro de Inteligencia Artificial e Innovación\\
+       \large [Nombre del Proyecto] -- [Mes de Año]}
+
+\author{
+  \IEEEauthorblockN{Autores: [Nombre del Integrante 1]}
+  \IEEEauthorblockN{[Nombre del Integrante 2]}
+  \IEEEauthorblockN{[Nombre del Integrante 3]}
+  \IEEEauthorblockA{Docentes / Asesores: [Nombre Docente 1], [Nombre Docente 2]}
+  \IEEEauthorblockA{
+    Centro de Inteligencia Artificial e Innovación (CIAI)\\
+    Colombia\\
+    autor1@uts.edu.co\\
+    autor2@uts.edu.co\\
+    autor3@uts.edu.co
+  }
+}
+
+\maketitle
+\thispagestyle{fancy}
+
+% -------------------------------------------------------
+% RESUMEN
+% -------------------------------------------------------
+\begin{abstract}
+Aquí va el texto del resumen del proyecto: objetivo general, alcance
+definido, estado actual de desarrollo y porcentaje global de avance frente
+al total requerido.
+\end{abstract}
+
+\begin{IEEEkeywords}
+proyecto CIAI, avances, inteligencia artificial, palabra clave 1, palabra clave 2
+\end{IEEEkeywords}
+
+% ===============================================================
+\section{Avances del Proyecto}
+% ===============================================================
+
+Aquí va el texto introductorio sobre el estado general del proyecto y los
+objetivos planteados para el periodo evaluado, con referencia
+de:~\cite{ejemplo_referencia}.
+
+% -------------------------------------------------------
+\subsection{Hitos y Entregables Completados}
+
+Aquí va el texto de: descripción detallada de los avances logrados hasta la
+fecha, módulos implementados, pruebas realizadas y resultados obtenidos,
+con referencia de:~\cite{ejemplo_referencia}.
+
+\begin{itemize}
+  \item \textbf{[Fase / Módulo 1]:} Aquí va el texto de lo completado (100\,\%).
+  \item \textbf{[Fase / Módulo 2]:} Aquí va el texto de lo completado (75\,\%).
+  \item \textbf{[Fase / Módulo 3]:} Aquí va el texto de lo completado (40\,\%).
+  \item \textbf{[Fase / Módulo 4]:} Aquí va el texto de lo pendiente (10\,\%).
+\end{itemize}
+
+% -------------------------------------------------------
+\subsection{Pendientes para Completar el Total Requerido}
+
+Aquí va el texto de: actividades faltantes para alcanzar el 100\,\% del
+proyecto, recursos necesarios y próximos pasos planificados.
+
+% ===============================================================
+\section{Gráfica de Avance respecto al Total Requerido}
+% ===============================================================
+
+Aquí va el texto de: análisis cuantitativo del progreso alcanzado en cada
+componente y en el total general del proyecto con respecto a lo que se
+necesita completar al 100\,\%.
+
+\begin{table}[h]
+\centering
+\caption{Resumen Cuantitativo de Avance del Proyecto}
+\label{tab:avance_proyecto}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Componente / Fase} & \textbf{Avance} & \textbf{Total} & \textbf{Porcentaje} \\
+                           & \textbf{Actual} & \textbf{Req.}  & \textbf{Completado} \\
+\midrule
+Fase 1: [Investigación]   & 10 & 10 & 100\,\% \\
+Fase 2: [Desarrollo]      & 15 & 20 & 75\,\%  \\
+Fase 3: [Pruebas]         & 4  & 10 & 40\,\%  \\
+Fase 4: [Documentación]   & 1  & 10 & 10\,\%  \\
+\midrule
+\textbf{Total del Proyecto} & \textbf{30} & \textbf{50} & \textbf{60\,\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  xbar stacked,
+  width=\columnwidth,
+  height=6.2cm,
+  bar width=0.42cm,
+  xmin=0,
+  xmax=100,
+  xlabel={Porcentaje respecto al total requerido (\%)},
+  symbolic y coords={
+    Total Proyecto,
+    Fase 4: Doc.,
+    Fase 3: Pruebas,
+    Fase 2: Desarr.,
+    Fase 1: Invest.
+  },
+  ytick=data,
+  yticklabel style={font=\footnotesize},
+  legend style={
+    at={(0.5,-0.22)},
+    anchor=north,
+    legend columns=-1,
+    font=\footnotesize
+  },
+  enlarge y limits=0.18,
+]
+% Barra 1: Porcentaje completado (modifique estos valores)
+\addplot+[
+  xbar,
+  fill=black!75,
+  draw=black,
+  nodes near coords={\pgfmathprintnumber{\pgfplotspointmeta}\%},
+  nodes near coords style={font=\tiny\bfseries, text=white}
+] coordinates {
+  (60,  Total Proyecto)
+  (10,  Fase 4: Doc.)
+  (40,  Fase 3: Pruebas)
+  (75,  Fase 2: Desarr.)
+  (100, Fase 1: Invest.)
+};
+
+% Barra 2: Porcentaje faltante para llegar al 100% (100 - avance)
+\addplot+[
+  xbar,
+  fill=black!15,
+  draw=black!50
+] coordinates {
+  (40, Total Proyecto)
+  (90, Fase 4: Doc.)
+  (60, Fase 3: Pruebas)
+  (25, Fase 2: Desarr.)
+  (0,  Fase 1: Invest.)
+};
+
+\legend{Avance completado, Pendiente para el total (100\%)}
+\end{axis}
+\end{tikzpicture}
+\caption{Aquí va la gráfica de: avance acumulado por fase y avance global
+del proyecto con respecto al 100\,\% total requerido.}
+\label{fig:avance_total}
+\end{figure}
+
+% -------------------------------------------------------
+\bibliographystyle{IEEEtran}
+\bibliography{referencias}
+
+\end{document}
